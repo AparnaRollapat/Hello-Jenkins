@@ -40,7 +40,7 @@ node {
     stage('Build Docker Image') {
       // build docker image
       sh "whoami"
-      sh "ls -all /var/run/docker.sock"
+      //sh "ls -all /var/run/docker.sock"
       sh "mv ./target/hello*.jar ./data" 
       
       dockerImage = docker.build("hello-world-java")
@@ -52,7 +52,7 @@ node {
 
       echo "Docker Image Tag Name: ${dockerImageTag}"
 
-      sh "docker login -u admin -p admin123 ${dockerRepoUrl}"
+      sh "docker login -u aparnar -p Saibaba@113 ${dockerRepoUrl}"
       sh "docker tag ${dockerImageName} ${dockerImageTag}"
       sh "docker push ${dockerImageTag}"
     }
